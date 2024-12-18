@@ -137,6 +137,7 @@ START_TEST(Session_setSessionAttribute_ShallWork) {
     UA_Variant *variant = UA_Variant_new();
     UA_Variant_init(variant);
     status s = UA_Server_setSessionAttribute(server, &createRes.sessionId, key, variant);
+    UA_Variant_delete(variant);
     ck_assert_int_eq(s, UA_STATUSCODE_GOOD);
 
     /* CloseSession */
